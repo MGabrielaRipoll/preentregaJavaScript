@@ -31,6 +31,10 @@ const MedioDePago = (a) => {
         tarjeta = Recargo (a,recargo);
         alert(`Su pago sera de ${tarjeta}`);
         cantidadCuotas = parseInt(prompt("Si lo desea puede abonar en 1, 3 o 6 cuotas.  Puede escribir su opcion"));
+        while (cantidadCuotas !== 1 && cantidadCuotas !== 3 && cantidadCuotas !==6) {
+            alert(`Solo puede acceder a 1, 3, 6 cuotas`);
+            cantidadCuotas = parseInt(prompt("Por favor ingrese nuevamente el nummero de cuotas, solo tiene acceso a 1, 3 o 6 cuotas."));
+        }        
         cuotas = Cuotas(tarjeta,cantidadCuotas);
         alert(`Su pago en cuotas sera de ${cuotas}`);
     };
