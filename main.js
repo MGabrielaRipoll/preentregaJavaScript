@@ -24,20 +24,23 @@ const MedioDePago = (a) => {
     let efectivo ;
     let tarjeta;
     let cuotas;
-    if (formaDePago === 1) {
-        efectivo = Descuento (a,descuento);
-        alert(`Su pago sera de ${efectivo}`);
-    } else {
-        tarjeta = Recargo (a,recargo);
-        alert(`Su pago sera de ${tarjeta}`);
-        cantidadCuotas = parseInt(prompt("Si lo desea puede abonar en 1, 3 o 6 cuotas.  Puede escribir su opcion"));
-        while (cantidadCuotas !== 1 && cantidadCuotas !== 3 && cantidadCuotas !==6) {
-            alert(`Solo puede acceder a 1, 3, 6 cuotas`);
-            cantidadCuotas = parseInt(prompt("Por favor ingrese nuevamente el nummero de cuotas, solo tiene acceso a 1, 3 o 6 cuotas."));
-        }        
-        cuotas = Cuotas(tarjeta,cantidadCuotas);
-        alert(`Su pago en cuotas sera de ${cuotas}`);
-    };
+    while (formaDePago === 1 || formaDePago ===2){
+        if (formaDePago === 1) {
+            efectivo = Descuento (a,descuento);
+            alert(`Su pago sera de ${efectivo}`);
+        } else {
+            tarjeta = Recargo (a,recargo);
+            alert(`Su pago sera de ${tarjeta}`);
+            cantidadCuotas = parseInt(prompt("Si lo desea puede abonar en 1, 3 o 6 cuotas.  Puede escribir su opcion"));
+            while (cantidadCuotas !== 1 && cantidadCuotas !== 3 && cantidadCuotas !==6) {
+                alert(`Solo puede acceder a 1, 3, 6 cuotas`);
+                cantidadCuotas = parseInt(prompt("Por favor ingrese nuevamente el nummero de cuotas, solo tiene acceso a 1, 3 o 6 cuotas."));
+            }        
+            cuotas = Cuotas(tarjeta,cantidadCuotas);
+            alert(`Su pago en cuotas sera de ${cuotas}`);
+        };
+    }
+    alert(`Solo puede elegir dos medios de pago, ingrese 1 para pago en efectivo y 2 para pago con tarjeta`);
 };
 
 let producto = parseInt(prompt("Si desea el Televisor escriba 1; Si desea una computadora escriba 2; Si desea un Home Theatre escriba 3 y si desea una consola de video juegos escriba 4; si no desea comprar nada escriba 0"));
